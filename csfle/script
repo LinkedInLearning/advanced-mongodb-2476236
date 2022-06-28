@@ -1,0 +1,1 @@
+echo $(head -c 96 /dev/urandom | base64 | tr -d '\n') > master_local_keyfile

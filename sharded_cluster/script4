@@ -1,0 +1,13 @@
+rs.initiate()
+
+use admin
+db.createUser({
+  user: "admin",
+  pwd: passwordPrompt(),
+ roles: [
+    {role: "root", db: "admin"}
+  ]
+})
+db.auth("admin")
+rs.add("localhost:27026")
+rs.add("localhost:27027")

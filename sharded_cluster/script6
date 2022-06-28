@@ -1,0 +1,5 @@
+use admin
+db.auth("admin")
+
+sh.addShard("shard1/localhost:27022,localhost:27023,localhost:27024")
+sh.addShard("shard2/localhost:27025,localhost:27026,localhost:27027")

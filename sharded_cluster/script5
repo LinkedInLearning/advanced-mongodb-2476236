@@ -1,0 +1,2 @@
+mongos -f mongos.conf
+mongosh --port 27018

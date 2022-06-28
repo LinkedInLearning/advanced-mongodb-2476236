@@ -1,0 +1,13 @@
+mkdir -p data/mongos
+mkdir -p data/cfg/{c1,c2,c3}
+mkdir -p data/shard1/{m1,m2,m3}
+mkdir -p data/shard2/{m4,m5,m6}
+mongod -f cfgsrv1.conf
+mongod -f cfgsrv2.conf
+mongod -f cfgsrv3.conf
+mongod -f m1.conf
+mongod -f m2.conf
+mongod -f m3.conf
+mongod -f m4.conf
+mongod -f m5.conf
+mongod -f m6.conf

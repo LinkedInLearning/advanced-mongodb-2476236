@@ -1,4 +1,5 @@
 .DS_Store
-node_modules
-.tmp
-npm-debug.log
+change_data.py
+gridfs/20MB_file_python
+env
+sharded_cluster/data/
