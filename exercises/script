@@ -1,0 +1,1 @@
+sh.shardCollection("test.filme", {genre: 1} )
