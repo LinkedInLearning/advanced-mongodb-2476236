@@ -12,20 +12,20 @@ def encrypt_fields(client_encryption, document):
         encrypted_email = client_encryption.encrypt(
             document["email"],
             Algorithm.AEAD_AES_256_CBC_HMAC_SHA_512_Deterministic,
-            key_alt_name='example_key_3')
+            key_alt_name='email_key')
         document["email"] = encrypted_email
 
     if "ssn" in document:
         encrypted_ssn = client_encryption.encrypt(
             document["ssn"],
             Algorithm.AEAD_AES_256_CBC_HMAC_SHA_512_Random,
-            key_alt_name='example_key_4')
+            key_alt_name='ssn_key')
         document["ssn"] = encrypted_ssn
 
     return document
 
 def main():
-    local_main_key_file = open('local_keyfile', 'r')
+    local_main_key_file = open('../csfle/local_keyfile', 'r')
     local_main_key = local_main_key_file.read()
     kms_providers = {"local": {"key": local_main_key}}
 
@@ -64,10 +64,10 @@ def main():
 
     # Create new data keys
     client_encryption.create_data_key(
-        'local', key_alt_names=['example_key_3'])
+        'local', key_alt_names=['email_key'])
 
     client_encryption.create_data_key(
-        'local', key_alt_names=['example_key_4'])
+        'local', key_alt_names=['ssn_key'])
 
     document = {
         "name": "Naomi Pentrel",
